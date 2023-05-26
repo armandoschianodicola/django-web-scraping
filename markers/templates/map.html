@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %} {% block home %}
+
+<h1>Hello</h1>
+
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Load Items</button>
+    <select name="item_id">
+      {% for entry in items %}
+      <option value="{{ entry.id }}">{{ entry.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Select</button>
+  </form>
+</div>
+
+{% endblock home %}
